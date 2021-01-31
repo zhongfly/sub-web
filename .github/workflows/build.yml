@@ -36,5 +36,5 @@ jobs:
       uses: zzzze/webhook-trigger@master
       with:
         data: '{"ref":"master"}'
-        webhook_url: 'https://api.github.com/repos/zhongfly/now-subconverter/actions/workflows/sub-web.yml/dispatches'
+        webhook_url: 'https://github.com/laong/now-subconverter/blob/master/.github/workflows/sub-web.yml/dispatches'
         options: '-H "Accept: application/vnd.github.v3+json" -H "Authorization: token ${{ secrets.REPO_TOKEN }}"'
