@@ -108,18 +108,6 @@
                       </el-row>
                       <el-button slot="reference">更多选项</el-button>
                     </el-popover>
-                    <el-popover placement="bottom" style="margin-left: 10px">
-                      <el-row>
-                        <el-checkbox v-model="form.tpl.surge.doh" label="Surge.DoH"></el-checkbox>
-                      </el-row>
-                      <el-row>
-                        <el-checkbox v-model="form.tpl.clash.doh" label="Clash.DoH"></el-checkbox>
-                      </el-row>
-                      <el-row>
-                        <el-checkbox v-model="form.insert" label="网易云"></el-checkbox>
-                      </el-row>
-                      <el-button slot="reference">定制功能</el-button>
-                    </el-popover>
                   </el-row>
                 </el-form-item>
               </div>
@@ -535,16 +523,6 @@ export default {
         appendType: false,
         insert: false, // 是否插入默认订阅的节点，对应配置项 insert_url
         new_name: true, // 是否使用 Clash 新字段
-
-        // tpl 定制功能
-        tpl: {
-          surge: {
-            doh: false // dns 查询是否使用 DoH
-          },
-          clash: {
-            doh: false
-          }
-        }
       },
 
       loading: false,
@@ -719,15 +697,6 @@ export default {
         if (this.needUdp) {
           this.customSubUrl += "&udp=" + this.form.udp.toString()
         }
-
-        if (this.form.tpl.surge.doh === true) {
-          this.customSubUrl += "&surge.doh=true";
-        }
-
-        if (this.form.clientType === "clash") {
-          if (this.form.tpl.clash.doh === true) {
-            this.customSubUrl += "&clash.doh=true";
-          }
 
           this.customSubUrl += "&new_name=" + this.form.new_name.toString();
         }
